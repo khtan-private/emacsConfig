@@ -19,6 +19,17 @@ This lead to 2 approaches
 | kwee1-ubuntu | wsl2   |                            |               |          |  27.1 |
 | kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig |          |  28.2 |
 | rooibos      | ubuntu |                            |               | yes      |  28.2 |
+** record
+*** https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
+spacemacs.d exists but spacemacs0.d not yet
+
+*** air
+**** plan
+1. clone and compare with original
+   make updates and push back to remote
+2. kwee1: pull and test
+**** sidebar: spacemacs adds a trailing space for future appends
+(setq sentence-end-double-space nil) can be used to NOT do this
 
 ** emacsConfig
 *** chemacs2Config

@@ -3,5 +3,7 @@
 # Nocommits
 *nocommit*
 *nocommit/
+# Spacemacs exclusions
+.spacemacs.env
 # Spacemacs develop repos
 *.develop
