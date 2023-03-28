@@ -1,0 +1,7 @@
+# Emacs backups
+*.*~
+# Nocommits
+*nocommit*
+*nocommit/
+# Spacemacs develop repos
+*.develop

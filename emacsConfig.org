@@ -1,0 +1,76 @@
+* main
+This describes the project to rationalize Emacs and Spacemacs configurations
+There are 2 smaller projects : chemacs2Config and reviveConfig
+The motivating event was how to better use revive.el to stack buffer/file definitions
+
+This lead to 2 approaches
+1. Study elisp to understand revive.el and then modify to suit
+   While (1) was proceeding, it occured that revive.el was a painful wrapper to reading some windows
+   configurations.
+2. Study the format of revive.el configuration so that pieces of revive configurations can be
+   loaded manually at will.
+   Although cluncky, the first usage is to copy the relevant revive config to ~/.revive.el and use
+   'resume' to load.
+3. After better usage, might write a better resume that takes a list of files and loads them
+** registry
+| machine      | os     | dir                        | alias         | chemacs2 | emacs |
+|--------------+--------+----------------------------+---------------+----------+-------|
+| air-win10    | win10  |                            |               |          |  28.2 |
+| kwee1-ubuntu | wsl2   |                            |               |          |  27.1 |
+| kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig |          |  28.2 |
+| rooibos      | ubuntu |                            |               | yes      |  28.2 |
+
+** emacsConfig
+*** chemacs2Config
+*** reviveConfig
+**** Problem: resume is unreliable when .revive.el gets too big
+revive.el works but is unreliable at times. This is especially true after a long session and many buffers/files
+are opened. When resume fails, it is due to some bad formattig of the .revive.el file but it is too late
+to recover. My examination of .revive.el shows that there are too much information esp on the buffer and
+file histories that bloat the data and causes possible syntax errors during writing.
+
+Since the buffers/files I need to load are few and consistent, it is simpler to just create some
+clean configuration files and load them in a consistent way.
+**** Intent
+The reviveConfig folder contains self-exclusionary revive files so that they can be loaded manually
+when needed.
+
+For eg: when we want that 'play' set
+
+1. cd ~
+2. cp emacsConfig/spacemacs.d/reviveConfig/play.el .revive.el
+3. M-x resume
+
+There is a default khtan.el that is copied to .revive.el so that the initial Spacemacs resume
+will have the main files
+**** Where to keep the repository of chemacs2Config
+The folders to keep is emacsConfig.
+The question is whether reviveConfig should be in emacsConfig or emacsConfig/spacemacs.d
+
+reviveConfig is more dependent on the machine and platform
+   The internals are all path related buffers or files
+   These paths can differ either due to platform or machine.
+   For eg, win paths have drive:<path> while lin paths are /<path>
+   For configurations, it is not easy to use relative paths - I think
+
+ls -ld emacsConfig/*
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/emacs.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:17 emacsConfig/spacemacs.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:19 emacsConfig/spacemacs.develop
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/spacemacs0.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:04 emacsConfig/spacemacs0.develop
+
+So, it does not make sense for reviveConfig to be in spacemacs.d but it should be independent of
+Spacemac's implemetnation/configurations
+
+
+for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad "%f\*" & echo.)
+for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad /s /t:c "%f\*" & echo.)
+**** Next steps
+Using ChatGPT, I learned that revive.el is the backbone of several other packages such as
+   1. desktop+
+   2. workgroups2
+   2. perspective.el
+While nice, they all have their assumptions and workflow that I have not fully investigated.
+Also, they do not address the issue of my concern - flexible/minimal defining of configs so that
+loading them will not cause problems.
