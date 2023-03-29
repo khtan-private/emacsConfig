@@ -59,7 +59,11 @@ Keep these 2 for reference for now:
    d:/users/khtan/Emacs
 *** kwee1-ubuntu
 **** found that git push required authentication
-installed gh and logged in
+installed gh and logged in with browser
+magit push still asks for user/token
+on the shell: git config credentialStore plaintext
+then git push on shell worked
+
 
 ** emacsConfig
 *** chemacs2Config
