@@ -31,6 +31,24 @@ spacemacs.d exists but spacemacs0.d not yet
 **** sidebar: spacemacs adds a trailing space for future appends
 (setq sentence-end-double-space nil) can be used to NOT do this
 
+**** reviveConfig for //air
+cd ~
+cp emacsConfig/reviveConfig/khtan.el .revive.el
+
+Somehow google drives G: H: I: are not mapped in the same way on //air and //kwee1
+|   | //air                   |                         |                     |
+|   | My Drive                | bash ls '/<d>/My Drive' | dir <d>:            |
+| g | icon is gdrive in cloud | fails                   | sees My Drive.lnk   |
+| h | icon is folder in cloud | ok                      | sees <dir> My Drive |
+| i | icon is folder in cloud | ok                      | sees <dir> My Drive |
+
+
+|   | //kwee1                 |                         |                     |
+|   | My Drive                | bash ls '/<d>/My Drive' | dir <d>:            |
+| g | icon is folder in cloud | ok                      | sees <dir> My Drive |
+| h | icon is folder in cloud | ok                      | sees <dir> My Drive |
+| i | icon is gdrive in cloud | fails                   | sees My Drive.lnk   |
+
 ** emacsConfig
 *** chemacs2Config
 *** reviveConfig
