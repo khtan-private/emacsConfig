@@ -1,4 +1,5 @@
 * main
+** intent
 This describes the project to rationalize Emacs and Spacemacs configurations
 There are 2 smaller projects : chemacs2Config and reviveConfig
 The motivating event was how to better use revive.el to stack buffer/file definitions
@@ -68,7 +69,15 @@ not suree if gh is needed
 
 To test: restart Ubuntu and make sure gh not logged in.
          try a magit push again
-
+*** rooibos
+**** init.el needs windows code to load windows-scripts layer? No
+  windows-scripts if for powershell and powershell can be available in linux
+**** init.el alphabetise ?
+**** init.el revive.el needs to be added
+The location of emacs by snap:
+ /snap/emacs/1855/usr/share/emacs/site-lisp
+ Added revive.el to /usr/local/share/emacs/site-lisp
+ With an unless code
 ** emacsConfig
 *** chemacs2Config
 *** reviveConfig
