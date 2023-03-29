@@ -63,7 +63,11 @@ installed gh and logged in with browser
 magit push still asks for user/token
 on the shell: git config credentialStore plaintext
 then git push on shell worked
+then magit push worked
+not suree if gh is needed
 
+To test: restart Ubuntu and make sure gh not logged in.
+         try a magit push again
 
 ** emacsConfig
 *** chemacs2Config
