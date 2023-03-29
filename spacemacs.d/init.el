@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(markdown
-     windows-scripts
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -44,11 +43,13 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (git :variables magit-ediff-dwim-show-on-hunks t)
      helm
+     html
      ;; lsp
-     ;; markdown
+     markdown
      ;; multiple-cursors
      org
      outshine
+     python
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -56,7 +57,10 @@ This function should only modify configuration layer settings."
      ;; syntax-checking
      typescript
      ;; version-control
-     treemacs)
+     treemacs
+     windows-scripts
+     yaml
+     )
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -554,6 +558,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (unless (eq system-type 'windows-nt)
+    (add-to-list 'load-path "/usr/local/share/emacs/site-lisp"))
 )
 
 
