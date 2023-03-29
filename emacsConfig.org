@@ -57,7 +57,7 @@ Somehow google drives G: H: I: are not mapped in the same way on //air and //kwe
 Keep these 2 for reference for now:
    d:/users/khtan/emacsOld
    d:/users/khtan/Emacs
-** kwee1-ubuntu
+*** kwee1-ubuntu
 
 ** emacsConfig
 *** chemacs2Config
