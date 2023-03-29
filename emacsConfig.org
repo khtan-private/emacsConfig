@@ -58,6 +58,8 @@ Keep these 2 for reference for now:
    d:/users/khtan/emacsOld
    d:/users/khtan/Emacs
 *** kwee1-ubuntu
+**** found that git push required authentication
+installed gh and logged in
 
 ** emacsConfig
 *** chemacs2Config
