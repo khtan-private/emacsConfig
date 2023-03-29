@@ -20,9 +20,12 @@ This lead to 2 approaches
 | kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig |          |  28.2 |
 | rooibos      | ubuntu |                            |               | yes      |  28.2 |
 ** record
-*** https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
+*** kwee1
+https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
 spacemacs.d exists but spacemacs0.d not yet
-
+Keep these 2 for reference for now:
+   d:/users/khtan/emacsOld
+   d:/users/khtan/Emacs
 *** air
 **** plan
 1. clone and compare with original
@@ -48,6 +51,13 @@ Somehow google drives G: H: I: are not mapped in the same way on //air and //kwe
 | g | icon is folder in cloud | ok                      | sees <dir> My Drive |
 | h | icon is folder in cloud | ok                      | sees <dir> My Drive |
 | i | icon is gdrive in cloud | fails                   | sees My Drive.lnk   |
+
+**** folded changes back to //kwee1
+**** cleaned up //air/d:/users/khtan/emacsConfig0
+Keep these 2 for reference for now:
+   d:/users/khtan/emacsOld
+   d:/users/khtan/Emacs
+** kwee1-ubuntu
 
 ** emacsConfig
 *** chemacs2Config
