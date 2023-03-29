@@ -16,9 +16,9 @@ This lead to 2 approaches
 ** registry
 | machine      | os     | dir                        | alias         | chemacs2 | emacs |
 |--------------+--------+----------------------------+---------------+----------+-------|
-| air-win10    | win10  |                            |               |          |  28.2 |
-| kwee1-ubuntu | wsl2   |                            |               |          |  27.1 |
-| kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig |          |  28.2 |
+| air-win10    | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig | yes      |  28.2 |
+| kwee1-ubuntu | wsl2   |                            | ~/emacsConfig | yes      |  27.1 |
+| kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig | yes      |  28.2 |
 | rooibos      | ubuntu |                            |               | yes      |  28.2 |
 ** record
 *** kwee1
