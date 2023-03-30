@@ -78,6 +78,11 @@ The location of emacs by snap:
  /snap/emacs/1855/usr/share/emacs/site-lisp
  Added revive.el to /usr/local/share/emacs/site-lisp
  With an unless code
+**** ubuntu gnome online account to google drive workaround
+The path to the drive is consistent but id driven instead of the filenames.
+Luckily, Emacs architecture took that into account.
+The khtan.rooibos.el is able to have a path and buffer name that are different, ie the
+path ends in a file but the buffer is called st.org etc.
 ** emacsConfig
 *** chemacs2Config
 *** reviveConfig
