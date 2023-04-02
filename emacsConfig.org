@@ -17,10 +17,226 @@ This lead to 2 approaches
 | machine      | os     | dir                        | alias         | chemacs2 | emacs |
 |--------------+--------+----------------------------+---------------+----------+-------|
 | air-win10    | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig | yes      |  28.2 |
-| kwee1-ubuntu | wsl2   |                            | ~/emacsConfig | yes      |  27.1 |
+| kwee1-ubuntu | wsl2   | ~/emacsConfig              | ~/emacsConfig | yes      |  27.1 |
 | kwee1-win10  | win10  | d:/users/khtan/emacsConfig | ~/emacsConfig | yes      |  28.2 |
-| rooibos      | ubuntu |                            |               | yes      |  28.2 |
-** record
+| rooibos      | ubuntu | ~/emacsConfig              |               | yes      |  28.2 |
+
+** update emacs on air/kwee1
+*** install emacs 28.2 on kwee1
+install emacs 28.2
+set PATH 
+then the spacemacs1.bat may not work ? cleaned up spacemacsHome1
+in hindsight should not
+
+install chemacs2
+add .emacs-profiles.el
+add spacemacs and then see how spacemacs behaves
+
+the problem is that emacs/spacemacs is more fundamental than git or node/playwright 
+so best to install one shot 
+*** install emacs 28.2 on air
+1. fix spacemacs2.bat to use path to emacs 26 and ensure it works
+2. install emacs 28.2, chemacs2 and reuse .emacs-profile.el
+3. bring up and allow installation
+**** unexpected problem: air system PATH around 3040 characters but some update now restricts to 2047
+Uninstalled VS 2017 and SQL Server 2012, 2014, 2017
+Did not free up much space on C: - still at 54G free
+Something may not be right here
+*** kwee1 : installed Signal and Whatsapp
+
+*** DONE kwee1-ubuntu: File mode specification error: (invalid-function org-assert-version)
+CLOSED: [2023-03-29 Wed 09:30]
+- State "DONE"       from              [2023-03-29 Wed 09:30]
+https://github.com/syl20bnr/spacemacs/issues/15869
+Remove /home/../.emacs.d/elpa/27.1/develop/org-9.6
+Remove /home/../.emacs.d/elpa/28.2/develop/org-9.6
+
+** accessing google drive
+*** DONE kwee1: wsl unable to access /mnt/g
+CLOSED: [2023-03-14 Tue 09:53]
+- State "DONE"       from              [2023-03-14 Tue 09:53]
+Since this worked before, just had to use wsl --shutdown and restart Ubuntu
+
+*** rooibos: direct access to google drive
+use it to see st.org etc and check usability/speed/corruption/convenience
+
+*** kwee1-ubuntu: Google Drive desktop not available on linux
+**** The idea of sharing files using G Drive only works for Windows and MacOS
+The G Drive Desktop is not available for Linux.
+There are other solutions specifically for Linux but in that case, we could also use Dropbox etc.
+Overall idea of sharing files on Linux implies the files are not synced but edited directly.
+This could possibly slow the access down.
+**** nautilus
+https://www.makeuseof.com/tag/access-google-drive-ubuntu/
+Turns out the Gnome file managers like nautilus cannot interpret the /mnt/<google drive> properly.
+Alternative to turn on the Gnome Online a/c will allow direct access but the speed may be problematic?
+
+Need to try to see
+**** others
+**** wsl have access to host via /mnt/<drive>
+https://www.raidrive.com/ is a service that works for linux/gdrive.
+** revive.el configuration file format
+1) write the output somewhere else
+   env variable for revive-input, revive-output?
+   or a file that specifies both input and output
+
+2) using some sample emacs configuration, write out the files for shell buffer etc
+
+3) identify why failure of one buffer loading causes entire load to fail.
+   ideally, should just write error and continue
+
+4) write tests and re-factor code to do the above
+
+5) check Intro Tutorial to see when defvar etc are introduced
+
+A set of eg-<>.el to see the syntax is in reviceConfig
+** emacsConfig
+** chemacs2
+*** DONE rooibos: make chemacs2 more indenpdent
+CLOSED: [2023-03-16 Thu 14:14]
+- State "DONE"       from "TODO"       [2023-03-16 Thu 14:14]
+- State "TODO"       from              [2023-03-14 Tue 10:41]
+**** intent
+The .spacemacs should be moved into ~/emacs.d/init.el
+The chemacs2 script should ensure that .spacemacs does not exist
+**** best practice: don't hide folders, ie just bloats things and makes it hard to see
+Add all emacs work in ~/emacsConfig
+Q) emacsStuff or emacsConfig?
+
+git clone https://github.com/syl20bnr/spacemacs ~/emacsConfig/spacemacs.develop
+
+user-emacs-directory = ~/emacsConfig/spacemacs.develop
+mkdir ~/emacsConfig/spacemacs.d
+touch ~/emacsConfig/spacemacs.d/init.el
+
+
+spacemacs              ~/emacsConfig/spacemacs.d
+spacemac0              ~/emacsConfig/spacemacs0.d
+
+The real missing document is how to create the spacemacs.d folder and what it needs
+
+chemacs2
+
+(("spacemacs" . ((user-emacs-directory . "~/emacsConfig/spacemacs.develop")
+                 (env . (("SPACEMACSDIR" . "~/emacsConfig/spacemacs.d")))))
+
+ ("spacemacs0" . ((user-emacs-directory . "~/emacsConfig/spacemacs.develop")
+                        (env . (("SPACEMACSDIR" . "~/emacsConfig/spacemacs0.d")))))
+
+ ("emacs" . ((user-emacs-directory . "~/spacemacsConfig/emacs.d")
+)))
+
+**** rooibos: turns out chemacs and spacemacs on .spacemacs.d not exactly working yet
+1) Instead of .emacs.d, keep all emacs config in folder ~/emacsConfig
+The HOME directory should have a ~/.emacs.d that is Chemacs2's version with a .emacs-profiles.el
+That should point to ~/emacsConfig/spacemacsd
+
+Default installation:
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+Alternate installation:
+mkdir ~/emacsConfig/spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/emacsConfig/spacemacs.develop
+git clone https://github.com/syl20bnr/spacemacs ~/emacsConfig/spacemacs0.develop
+
+HOME=~/~/emacsConfig/spacemacs
+
+https://develop.spacemacs.org/doc/QUICK_START.html
+  contents of .spacemacs should be copied into the init.el file
+
+https://github.com/syl20bnr/spacemacs/blob/master/README.md#prerequisites
+
+https://github.com/plexus/chemacs2
+  distinguishes between user-emacs-directory and SPACEMACSDIR
+
+Able to create a working Chemacs2 where
+emacs // defaults to spacemacs
+emacs --with-profile spacemacs
+emacs --with-profile spacemacs0
+emacs --with-profile emacs
+all work correctly.
+Observed that emacsConfig/spacemacs.d and emacsConfig/spacemacs0.d only contains init.el ( aka .spacemacs ).
+All updates to the layers are reflected to the spacemacs installation (spacemacs.develop)
+While this allows the init.el to be separately version controlled, there is a disconnect that makes it
+less useful.
+In fact, the entire emacsConfig is probably worth versioning except that spacemacs.develop is a clone from
+Spacemacs directly.
+
+My conclusion is that the separation of user-emacs-directory and SPACEMACSDIR is arbitary and artificial.
+If a layer is added in SPACEMACSDIR/init.el, it installs stuff in user-emacs-directory.
+If a second SPACEMACSDIR2/init.el is different, spacemacs goes through all the trouble of uninstalling/installing
+to match the new init.el. So going back and forth just causes a lot of work.
+
+By definition, the meanings and intent of user-emacs-directory and SPACEMACSDIR is correct. It is just that
+the implementation results in unexpected dependency.
+So it is simpler to combine the two. But u cannot because of the architectural logic. Spacemacs wants to create
+a init.el in user-emacs-directory and there is already a init.el in SPACEMACDIR ( not sure for what purpose )
+So 2 directories have to be packaged together as one.
+**** rooibos: ~/.emacs-profiles.el
+(
+ ("default"   . ((user-emacs-directory . "~/emacsConfig/spacemacs.develop")
+                 (env . (("SPACEMACSDIR" . "~/emacsConfig/spacemacs.d")))))
+ ("spacemacs" . ((user-emacs-directory . "~/emacsConfig/spacemacs.develop")
+                 (env . (("SPACEMACSDIR" . "~/emacsConfig/spacemacs.d")))))
+ ("spacemacs0". ((user-emacs-directory . "~/emacsConfig/spacemacs0.develop")
+                 (env . (("SPACEMACSDIR" . "~/emacsConfig/spacemacs0.d")))))
+ ("emacs" . ((user-emacs-directory . "~/emacsConfig/emacs.d")
+	     ))
+ )
+
+** reviveConfig
+*** Problem: resume is unreliable when .revive.el gets too big
+revive.el works but is unreliable at times. This is especially true after a long session and many buffers/files
+are opened. When resume fails, it is due to some bad formattig of the .revive.el file but it is too late
+to recover. My examination of .revive.el shows that there are too much information esp on the buffer and
+file histories that bloat the data and causes possible syntax errors during writing.
+
+Since the buffers/files I need to load are few and consistent, it is simpler to just create some
+clean configuration files and load them in a consistent way.
+*** Intent
+The reviveConfig folder contains self-exclusionary revive files so that they can be loaded manually
+when needed.
+
+For eg: when we want that 'play' set
+
+1. cd ~
+2. cp emacsConfig/spacemacs.d/reviveConfig/play.el .revive.el
+3. M-x resume
+
+There is a default khtan.el that is copied to .revive.el so that the initial Spacemacs resume
+will have the main files
+*** Where to keep the repository of chemacs2Config
+The folders to keep is emacsConfig.
+The question is whether reviveConfig should be in emacsConfig or emacsConfig/spacemacs.d
+
+reviveConfig is more dependent on the machine and platform
+   The internals are all path related buffers or files
+   These paths can differ either due to platform or machine.
+   For eg, win paths have drive:<path> while lin paths are /<path>
+   For configurations, it is not easy to use relative paths - I think
+
+ls -ld emacsConfig/*
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/emacs.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:17 emacsConfig/spacemacs.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:19 emacsConfig/spacemacs.develop
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/spacemacs0.d
+drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:04 emacsConfig/spacemacs0.develop
+
+So, it does not make sense for reviveConfig to be in spacemacs.d but it should be independent of
+Spacemac's implemetnation/configurations
+
+
+for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad "%f\*" & echo.)
+for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad /s /t:c "%f\*" & echo.)
+*** Next steps
+Using ChatGPT, I learned that revive.el is the backbone of several other packages such as
+   1. desktop+
+   2. workgroups2
+   2. perspective.el
+While nice, they all have their assumptions and workflow that I have not fully investigated.
+Also, they do not address the issue of my concern - flexible/minimal defining of configs so that
+loading them will not cause problems.
+
+** deploying emacsConfig and chemacs2Config
 *** kwee1
 https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
 spacemacs.d exists but spacemacs0.d not yet
@@ -83,57 +299,5 @@ The path to the drive is consistent but id driven instead of the filenames.
 Luckily, Emacs architecture took that into account.
 The khtan.rooibos.el is able to have a path and buffer name that are different, ie the
 path ends in a file but the buffer is called st.org etc.
-** emacsConfig
-*** chemacs2Config
-*** reviveConfig
-**** Problem: resume is unreliable when .revive.el gets too big
-revive.el works but is unreliable at times. This is especially true after a long session and many buffers/files
-are opened. When resume fails, it is due to some bad formattig of the .revive.el file but it is too late
-to recover. My examination of .revive.el shows that there are too much information esp on the buffer and
-file histories that bloat the data and causes possible syntax errors during writing.
-
-Since the buffers/files I need to load are few and consistent, it is simpler to just create some
-clean configuration files and load them in a consistent way.
-**** Intent
-The reviveConfig folder contains self-exclusionary revive files so that they can be loaded manually
-when needed.
-
-For eg: when we want that 'play' set
-
-1. cd ~
-2. cp emacsConfig/spacemacs.d/reviveConfig/play.el .revive.el
-3. M-x resume
-
-There is a default khtan.el that is copied to .revive.el so that the initial Spacemacs resume
-will have the main files
-**** Where to keep the repository of chemacs2Config
-The folders to keep is emacsConfig.
-The question is whether reviveConfig should be in emacsConfig or emacsConfig/spacemacs.d
-
-reviveConfig is more dependent on the machine and platform
-   The internals are all path related buffers or files
-   These paths can differ either due to platform or machine.
-   For eg, win paths have drive:<path> while lin paths are /<path>
-   For configurations, it is not easy to use relative paths - I think
-
-ls -ld emacsConfig/*
-drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/emacs.d
-drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:17 emacsConfig/spacemacs.d
-drwxr-xr-x 1 kweeECS 197121 0 Mar 27 17:19 emacsConfig/spacemacs.develop
-drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:05 emacsConfig/spacemacs0.d
-drwxr-xr-x 1 kweeECS 197121 0 Mar 20 11:04 emacsConfig/spacemacs0.develop
-
-So, it does not make sense for reviveConfig to be in spacemacs.d but it should be independent of
-Spacemac's implemetnation/configurations
 
 
-for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad "%f\*" & echo.)
-for /f "tokens=* delims=" %f in ('dir /b /ad') do @(echo %f & dir /b /ad /s /t:c "%f\*" & echo.)
-**** Next steps
-Using ChatGPT, I learned that revive.el is the backbone of several other packages such as
-   1. desktop+
-   2. workgroups2
-   2. perspective.el
-While nice, they all have their assumptions and workflow that I have not fully investigated.
-Also, they do not address the issue of my concern - flexible/minimal defining of configs so that
-loading them will not cause problems.
