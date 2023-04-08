@@ -64,7 +64,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(desktop+)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -543,6 +543,7 @@ default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
   (spacemacs/load-spacemacs-env)
+  (setq desktop-auto-save-timeout 0)
 )
 
 (defun dotspacemacs/user-init ()
@@ -551,6 +552,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
 )
 
 
@@ -568,6 +570,14 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (require 'desktop+)
+  ()
+  (with-eval-after-load "persp-mode"
+    (persp-def-buffer-save/load
+     :mode 'shell-mode
+     :mode-restore-function #'(lambda (_mode) (message "[ATTENTION]: Restoring shell process for %S buffer" (current-buffer)) (shell))
+     :tag-symbol 'def-shell
+     :save-vars '(major-mode default-directory)))
 )
 
 
