@@ -253,19 +253,19 @@ This is to document how a new node is updated with all the relevant pieces for e
 4. firstam rdp to air
    Win-Shift arrows do not move the windows across monitors for air, but works for firstam
 5. git clone the following repos
-|             | repo                                             | dest                          | 
+|             | repo                                             | dest                          |
 |-------------+--------------------------------------------------+-------------------------------|
-| bin         | https://github.com/khtan-private/khtan-bin.git   | bin                           | 
+| bin         | https://github.com/khtan-private/khtan-bin.git   | bin                           |
 | emacsConfig | https://github.com/khtan-private/emacsConfig.git | emacsConfig                   |
 | .emacs.d    | https://github.com/plexus/chemacs2.git           | .emacs.d                      |
-| spacemacs   | https://github.com/syl20bnr/spacemacs.git        | emacsConfig/spacemacs.develop | 
+| spacemacs   | https://github.com/syl20bnr/spacemacs.git        | emacsConfig/spacemacs.develop |
 |             |                                                  |                               |
 
 6. HOME needs to be set
 7. PATH needs to be updated
    %HOME%/bin
    <emacs>/bin
-   <git>/cmd   
+   <git>/cmd
 8. copy emacsConfig/chemacs2Config/emacs-profiles.el .emacs-profiles.el
 9. copy <play>/elisp/elisp-dist/revive.el to <emacs>/share/emacs/site-lisp
 10. emacs require installation of Source Code Pro font
