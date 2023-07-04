@@ -239,14 +239,25 @@ loading them will not cause problems.
 ** deploying emacsConfig and chemacs2Config
 *** firstam: xxx
 **** notes
+[2023-07-04 Tue]
 This is to document how a new node is updated with all the relevant pieces for emacsConfig/reviveConfig
 1. For this machine, due to lack of admin rights, all software are added portably
    a. git
    b. emacs
+2. Also although firstAm does not allow outside PCs to remote desktop into it, it can remote into outside PCs.
+   Thus we can rdp to //air with WORKGROUP\khtan as the user
+3. During the intro/transfer period, it is nice to have 2 microsoft keyboards so that the fingers don't have
+   to do double duty on laptop and MS keyboard.
+4. firstam rdp to air
+   Win-Shift arrows do not move the windows across monitors for air, but works for firstam
+
 
 | bin         | https://github.com/khtan-private/khtan-bin.git   |
 | emacsConfig | https://github.com/khtan-private/emacsConfig.git |
 | .emacs.d    | https://github.com/plexus/chemacs2.git           |
+wt
+HOME needs to be set
+cp emacsConfig/chemacs2Config/emacs-profiles.el .emacs-profiles.el
 
 *** kwee1
 https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
