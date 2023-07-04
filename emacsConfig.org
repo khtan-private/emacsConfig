@@ -244,6 +244,8 @@ This is to document how a new node is updated with all the relevant pieces for e
 1. For this machine, due to lack of admin rights, all software are added portably
    a. git
    b. emacs
+   Emacs portable zip can be downloaded and placed in the right place.
+   For firstAm, it is c:/local
 2. Also although firstAm does not allow outside PCs to remote desktop into it, it can remote into outside PCs.
    Thus we can rdp to //air with WORKGROUP\khtan or AIR\khtan as the user
 3. During the intro/transfer period, it is nice to have 2 microsoft keyboards so that the fingers don't have
@@ -251,16 +253,24 @@ This is to document how a new node is updated with all the relevant pieces for e
 4. firstam rdp to air
    Win-Shift arrows do not move the windows across monitors for air, but works for firstam
 5. git clone the following repos
-|             | repo                                             | dest                          |
-| bin         | https://github.com/khtan-private/khtan-bin.git   | bin                           |
+|             | repo                                             | dest                          | 
+|-------------+--------------------------------------------------+-------------------------------|
+| bin         | https://github.com/khtan-private/khtan-bin.git   | bin                           | 
 | emacsConfig | https://github.com/khtan-private/emacsConfig.git | emacsConfig                   |
 | .emacs.d    | https://github.com/plexus/chemacs2.git           | .emacs.d                      |
-| spacemacs   | https://github.com/syl20bnr/spacemacs.git        | emacsConfig/spacemacs.develop |
+| spacemacs   | https://github.com/syl20bnr/spacemacs.git        | emacsConfig/spacemacs.develop | 
 |             |                                                  |                               |
 
 6. HOME needs to be set
-7. copy emacsConfig/chemacs2Config/emacs-profiles.el .emacs-profiles.el
-
+7. PATH needs to be updated
+   %HOME%/bin
+   <emacs>/bin
+   <git>/cmd   
+8. copy emacsConfig/chemacs2Config/emacs-profiles.el .emacs-profiles.el
+9. copy <play>/elisp/elisp-dist/revive.el to <emacs>/share/emacs/site-lisp
+10. emacs require installation of Source Code Pro font
+      https://fonts.google.com/specimen/Source+Code+Pro download .zip
+      
 *** kwee1
 https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
 spacemacs.d exists but spacemacs0.d not yet
