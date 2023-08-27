@@ -270,7 +270,7 @@ This is to document how a new node is updated with all the relevant pieces for e
 9. copy <play>/elisp/elisp-dist/revive.el to <emacs>/share/emacs/site-lisp
 10. emacs require installation of Source Code Pro font
       https://fonts.google.com/specimen/Source+Code+Pro download .zip
-      
+
 *** kwee1
 https://github.com/khtan-private/emacsConfig.git created from kwee1-win10
 spacemacs.d exists but spacemacs0.d not yet
