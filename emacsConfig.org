@@ -237,6 +237,17 @@ Also, they do not address the issue of my concern - flexible/minimal defining of
 loading them will not cause problems.
 
 ** deploying emacsConfig and chemacs2Config
+*** jasmine
+**** This is MQ's laptop repurposed for PP and home and travel
+HOME is currently d:\users\tikus\kingston\mingqian
+c:\users\poi is clean and empty
+
+1. emacs is 26.3 while air has 28.2, but don't upgrade until necessary
+2. 26.3 is too old for spacemacs
+   Might as well leapfrog to the latest emacs
+
+
+
 *** firstam: xxx
 **** notes
 [2023-07-04 Tue]
@@ -333,5 +344,3 @@ The path to the drive is consistent but id driven instead of the filenames.
 Luckily, Emacs architecture took that into account.
 The khtan.rooibos.el is able to have a path and buffer name that are different, ie the
 path ends in a file but the buffer is called st.org etc.
-
-
