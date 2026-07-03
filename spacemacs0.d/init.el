@@ -40,12 +40,12 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
-     emacs-lisp
+     ;; emacs-lisp
      ;; git
-     helm
+     ;; helm
      ;; lsp
      ;; markdown
-     multiple-cursors
+     ;; multiple-cursors
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -53,7 +53,8 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
-     treemacs)
+     ;; treemacs
+     )
 
 
    ;; List of additional packages that will be installed without being wrapped
