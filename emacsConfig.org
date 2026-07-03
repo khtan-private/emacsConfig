@@ -246,8 +246,6 @@ c:\users\poi is clean and empty
 2. 26.3 is too old for spacemacs
    Might as well leapfrog to the latest emacs
 
-
-
 *** firstam: xxx
 **** notes
 [2023-07-04 Tue]
